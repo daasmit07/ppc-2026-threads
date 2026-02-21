@@ -10,7 +10,7 @@
 namespace mityaeva_radix {
 
 class MityaevaRadixPerf : public ppc::util::BaseRunPerfTests<InType, OutType> {
-  const std::size_t kCount_ = 10000;
+  const std::size_t kCount_ = 4'000'000;
   InType input_data_;
 
   void SetUp() override {
@@ -18,7 +18,7 @@ class MityaevaRadixPerf : public ppc::util::BaseRunPerfTests<InType, OutType> {
   }
 
   bool CheckTestOutputData(OutType &output_data) final {
-    return std::ranges::is_sorted(output_data);
+    return std::ranges::is_sorted(output_data, [](auto a, auto b) { return a <= b; });
   }
 
   InType GetTestInputData() final {

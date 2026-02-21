@@ -45,7 +45,7 @@ TEST_P(MityaevaRadixFunc, RadixSortFunc) {
   ExecuteTest(GetParam());
 }
 
-const std::array<TestType, 10> kTestParam = {1, 20, 30, 40, 50, 60, 70, 80, 91, 100};
+const std::array<TestType, 12> kTestParam = {1, 2, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100};
 
 const auto kTestTasksList =
     std::tuple_cat(ppc::util::AddFuncTask<MityaevaRadixSeq, InType>(kTestParam, PPC_SETTINGS_mityaeva_radix));
