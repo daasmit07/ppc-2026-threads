@@ -14,7 +14,9 @@ namespace redkina_a_integral_simpson_seq {
 namespace {
 
 inline int GetWeight(int idx, int n) {
-  if (idx == 0 || idx == n) return 1;
+  if (idx == 0 || idx == n) {
+    return 1;
+  }
   return (idx % 2 == 1) ? 4 : 2;
 }
 
@@ -29,10 +31,16 @@ bool RedkinaAIntegralSimpsonOMP::ValidationImpl() {
   const auto &in = GetInput();
   size_t dim = in.a.size();
 
-  if (dim == 0 || in.b.size() != dim || in.n.size() != dim) return false;
+  if (dim == 0 || in.b.size() != dim || in.n.size() != dim) {
+    return false;
+  }
   for (size_t i = 0; i < dim; ++i) {
-    if (in.a[i] >= in.b[i]) return false;
-    if (in.n[i] <= 0 || in.n[i] % 2 != 0) return false;
+    if (in.a[i] >= in.b[i]) {
+      return false;
+    }
+    if (in.n[i] <= 0 || in.n[i] % 2 != 0) {
+      return false;
+    }
   }
   return static_cast<bool>(in.func);
 }
@@ -54,16 +62,21 @@ bool RedkinaAIntegralSimpsonOMP::RunImpl() {
   std::vector<double> b = b_;
   std::vector<int> n = n_;
   std::vector<double> h(dim);
-  for (size_t i = 0; i < dim; ++i) h[i] = (b[i] - a[i]) / static_cast<double>(n[i]);
+  for (size_t i = 0; i < dim; ++i) {
+    h[i] = (b[i] - a[i]) / static_cast<double>(n[i]);
+  }
 
   std::vector<size_t> strides(dim);
   strides[dim - 1] = 1;
-  for (int i = static_cast<int>(dim) - 2; i >= 0; --i)
+  for (int i = static_cast<int>(dim) - 2; i >= 0; --i) {
     strides[i] = strides[i + 1] * static_cast<size_t>(n[i + 1] + 1);
+  }
 
   const size_t total_nodes = [&] {
     size_t prod = 1;
-    for (int ni : n) prod *= static_cast<size_t>(ni + 1);
+    for (int ni : n) {
+      prod *= static_cast<size_t>(ni + 1);
+    }
     return prod;
   }();
 
@@ -98,10 +111,14 @@ bool RedkinaAIntegralSimpsonOMP::RunImpl() {
   }
 
   double h_prod = 1.0;
-  for (size_t i = 0; i < dim; ++i) h_prod *= h[i];
+  for (size_t i = 0; i < dim; ++i) {
+    h_prod *= h[i];
+  }
 
   double denominator = 1.0;
-  for (size_t i = 0; i < dim; ++i) denominator *= 3.0;
+  for (size_t i = 0; i < dim; ++i) {
+    denominator *= 3.0;
+  }
 
   result_ = (h_prod / denominator) * sum;
   return true;
