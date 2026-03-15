@@ -6,7 +6,7 @@
 #include "kolotukhin_a_gaussian_blur/common/include/common.hpp"
 #include "task/include/task.hpp"
 
-namespace kolotukhin_a_gaussian_blur_omp {
+namespace kolotukhin_a_gaussian_blur {
 
 class KolotukhinAGaussinBlureOMP : public BaseTask {
  public:
@@ -25,4 +25,4 @@ class KolotukhinAGaussinBlureOMP : public BaseTask {
                                              int pos_x, int pos_y);
 };
 
-}  // namespace kolotukhin_a_gaussian_blur_omp
+}  // namespace kolotukhin_a_gaussian_blur

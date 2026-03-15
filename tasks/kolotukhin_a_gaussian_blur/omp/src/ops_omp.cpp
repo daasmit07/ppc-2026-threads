@@ -11,7 +11,7 @@
 
 #include "kolotukhin_a_gaussian_blur/common/include/common.hpp"
 
-namespace kolotukhin_a_gaussian_blur_omp {
+namespace kolotukhin_a_gaussian_blur {
 
 KolotukhinAGaussinBlureOMP::KolotukhinAGaussinBlureOMP(const InType &in) {
   SetTypeOfTask(GetStaticTypeOfTask());
@@ -74,4 +74,4 @@ bool KolotukhinAGaussinBlureOMP::PostProcessingImpl() {
   return true;
 }
 
-}  // namespace kolotukhin_a_gaussian_blur_omp
+}  // namespace kolotukhin_a_gaussian_blur
