@@ -132,6 +132,7 @@ const auto kTestTasksListOmp =
     ppc::util::AddFuncTask<RedkinaAIntegralSimpsonOMP, InType>(kTestCases, PPC_SETTINGS_redkina_a_integral_simpson);
 const auto kGtestValuesOmp = ppc::util::ExpandToValues(kTestTasksListOmp);
 
+// Для TBB
 const auto kTestTasksListTbb =
     ppc::util::AddFuncTask<RedkinaAIntegralSimpsonTBB, InType>(kTestCases, PPC_SETTINGS_redkina_a_integral_simpson);
 const auto kGtestValuesTbb = ppc::util::ExpandToValues(kTestTasksListTbb);
