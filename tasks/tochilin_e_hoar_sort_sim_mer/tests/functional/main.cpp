@@ -79,16 +79,15 @@ const std::array<TestType, 8> kTestParam = {
     std::make_tuple(127, "ReverseSorted"), std::make_tuple(512, "LargeSize")};
 
 const auto kTestTasksList = std::tuple_cat(
-    ppc::util::AddFuncTask<TochilinEHoarSortSimMerOMP, InType>(kTestParam, PPC_SETTINGS_tochilin_e_hoar_sort_sim_mer));
+    ppc::util::AddFuncTask<TochilinEHoarSortSimMerOMP, InType>(kTestParam, PPC_SETTINGS_tochilin_e_hoar_sort_sim_mer),
     ppc::util::AddFuncTask<TochilinEHoarSortSimMerSEQ, InType>(kTestParam, PPC_SETTINGS_tochilin_e_hoar_sort_sim_mer));
 
-    const auto kGtestValues = ppc::util::ExpandToValues(kTestTasksList);
+const auto kGtestValues = ppc::util::ExpandToValues(kTestTasksList);
 
-    const auto kPerfTestName =
-        TochilinEHoarSortSimMerRunFuncTests::PrintFuncTestName<TochilinEHoarSortSimMerRunFuncTests>;
+const auto kPerfTestName = TochilinEHoarSortSimMerRunFuncTests::PrintFuncTestName<TochilinEHoarSortSimMerRunFuncTests>;
 
-    INSTANTIATE_TEST_SUITE_P(HoarSortSimMerTests, TochilinEHoarSortSimMerRunFuncTests, kGtestValues, kPerfTestName);
+INSTANTIATE_TEST_SUITE_P(HoarSortSimMerTests, TochilinEHoarSortSimMerRunFuncTests, kGtestValues, kPerfTestName);
 
-    }  // namespace
+}  // namespace
 
-    }  // namespace tochilin_e_hoar_sort_sim_mer
+}  // namespace tochilin_e_hoar_sort_sim_mer
