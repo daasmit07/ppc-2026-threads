@@ -19,4 +19,9 @@ class OtcheskovSContrastLinStretchTBB : public BaseTask {
   bool PostProcessingImpl() override;
 };
 
+struct MinMax {
+  uint8_t min{255};
+  uint8_t max{0};
+};
+
 }  // namespace otcheskov_s_contrast_lin_stretch
