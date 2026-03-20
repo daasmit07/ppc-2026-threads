@@ -12,13 +12,7 @@
 #include "paramonov_v_bin_img_conv_hul_omp/omp/include/ops_omp.hpp"
 #include "util/include/func_test_util.hpp"
 
-namespace paramonov_v_bin_img_conv_hul_omp {
-
-// Импортируем типы из оригинального namespace
-using paramonov_v_bin_img_conv_hul::GrayImage;
-using paramonov_v_bin_img_conv_hul::InputType;
-using paramonov_v_bin_img_conv_hul::OutputType;
-using paramonov_v_bin_img_conv_hul::PixelPoint;
+namespace paramonov_v_bin_img_conv_hul {
 
 using TestCase = std::tuple<GrayImage, std::vector<std::vector<PixelPoint>>, std::string>;
 
@@ -228,4 +222,4 @@ TEST_P(ConvexHullFuncTest, RunFunctionalTests) {
 
 }  // namespace
 
-}  // namespace paramonov_v_bin_img_conv_hul_omp
+}  // namespace paramonov_v_bin_img_conv_hul

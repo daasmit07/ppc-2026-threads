@@ -10,13 +10,7 @@
 #include "paramonov_v_bin_img_conv_hul_omp/omp/include/ops_omp.hpp"
 #include "util/include/perf_test_util.hpp"
 
-namespace paramonov_v_bin_img_conv_hul_omp {
-
-// Импортируем типы из оригинального namespace
-using paramonov_v_bin_img_conv_hul::GrayImage;
-using paramonov_v_bin_img_conv_hul::InputType;
-using paramonov_v_bin_img_conv_hul::OutputType;
-using paramonov_v_bin_img_conv_hul::PixelPoint;
+namespace paramonov_v_bin_img_conv_hul {
 
 class ConvexHullPerformanceTest : public ppc::util::BaseRunPerfTests<InputType, OutputType> {
   static constexpr int kImageSize = 600;
@@ -85,4 +79,4 @@ INSTANTIATE_TEST_SUITE_P(ParamonovPerfTests, ConvexHullPerformanceTest, kTestVal
 
 }  // namespace
 
-}  // namespace paramonov_v_bin_img_conv_hul_omp
+}  // namespace paramonov_v_bin_img_conv_hul
