@@ -1,8 +1,9 @@
 #include "akimov_i_radixsort_int_merge/omp/include/ops_omp.hpp"
 
+#include <omp.h>
+
 #include <cstdint>
 #include <vector>
-#include <omp.h>
 
 #include "akimov_i_radixsort_int_merge/common/include/common.hpp"
 
@@ -86,4 +87,4 @@ bool AkimovIRadixSortIntMergeOMP::PostProcessingImpl() {
   return true;
 }
 
-}  // akimov_i_radixsort_int_merge
+}  // namespace akimov_i_radixsort_int_merge
