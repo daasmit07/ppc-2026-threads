@@ -44,6 +44,7 @@ void SorterTbb::CountingPass(std::vector<uint64_t> *current, std::vector<uint64_
   }, tbb::static_partitioner());
 
   std::vector<int> prefix_sums(static_cast<size_t>(radix * num_threads), 0);
+
   int total = 0;
   for (int digit = 0; digit < radix; digit++) {
     int digit_sum = 0;
