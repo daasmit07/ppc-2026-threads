@@ -5,8 +5,12 @@
 
 #include "mityaeva_radix/common/include/common.hpp"
 #include "mityaeva_radix/common/include/test_generator.hpp"
+#include "mityaeva_radix/omp/include/ops_omp.hpp"
 #include "mityaeva_radix/seq/include/ops_seq.hpp"
+#include "mityaeva_radix/stl/include/ops_stl.hpp"
+#include "mityaeva_radix/tbb/include/ops_tbb.hpp"
 #include "util/include/perf_test_util.hpp"
+
 namespace mityaeva_radix {
 
 class MityaevaRadixPerf : public ppc::util::BaseRunPerfTests<InType, OutType> {
@@ -32,7 +36,9 @@ TEST_P(MityaevaRadixPerf, RadixSortPerf) {
 
 namespace {
 
-const auto kAllPerfTasks = ppc::util::MakeAllPerfTasks<InType, MityaevaRadixSeq>(PPC_SETTINGS_mityaeva_radix);
+const auto kAllPerfTasks =
+    ppc::util::MakeAllPerfTasks<InType, MityaevaRadixSeq, MityaevaRadixOmp, MityaevaRadixTbb, MityaevaRadixStl>(
+        PPC_SETTINGS_mityaeva_radix);
 
 const auto kGtestValues = ppc::util::TupleToGTestValues(kAllPerfTasks);
 
