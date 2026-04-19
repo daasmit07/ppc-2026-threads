@@ -1,7 +1,7 @@
 # Radix sort of `double`s with simple merge (MPI + OpenMP parallelization)
 
 - Student: Митяева Дарья Викторовна, group 3823Б1ФИ2
-- Technology: ALL (MPI + OpenMP hybrid)
+- Technology: ALL (MPI + OpenMP)
 - Variant: 19
 
 ## 1. Introduction
