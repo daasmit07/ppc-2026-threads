@@ -105,6 +105,7 @@ void SorterStl::Sort(std::vector<double> &data) {
   const int bits_per_pass = 8;
   const int radix = 1 << bits_per_pass;
   const int passes = static_cast<int>(sizeof(uint64_t) * 8 / bits_per_pass);
+  
   std::vector<uint64_t> uint_temp(data.size());
   std::vector<uint64_t> *current = &as_uint;
   std::vector<uint64_t> *next = &uint_temp;
